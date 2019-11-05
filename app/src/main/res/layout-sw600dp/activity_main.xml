@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.admin.bitmapanimation.viewmodel.EntryPointViewModel"/>
+
+    </data>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.MainActivity">
+
+    <TextView
+        android:paddingTop="10dp"
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp"
+        android:id="@+id/textViewId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@{viewModel.entryTextGreeting}"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/imageViewId"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewId"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <FrameLayout
+        android:id="@+id/frameLayoutID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/imageViewId"
+        app:layout_constraintBottom_toTopOf="@id/frgAbtn"
+        />
+
+    <Button
+        android:id="@+id/frgAbtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#ff0000"
+        android:text="Fragment A"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/frgBbtn"
+        app:layout_constraintHorizontal_weight="0.5"
+        android:onClick="@{() -> viewModel.onFragmentA()}"
+        />
+
+    <Button
+        android:id="@+id/frgBbtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#0000ff"
+        android:text="Fragment B"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/frgAbtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="0.5"
+        android:onClick="@{() -> viewModel.onFragmentB()}"
+        />
+
+</android.support.constraint.ConstraintLayout>
+</layout>
